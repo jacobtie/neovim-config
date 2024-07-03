@@ -31,4 +31,12 @@ return {
       },
     },
   },
+  {
+    'f-person/git-blame.nvim',
+    config = function()
+      require('gitblame').setup { enable = true }
+      vim.keymap.set('n', '<leader>gb', ':GitBlameOpenCommitURL<CR>', { desc = '[G]it [B]lame' })
+      vim.g.gitblame_message_when_not_committed = 'Uncommitted changes'
+    end,
+  },
 }
