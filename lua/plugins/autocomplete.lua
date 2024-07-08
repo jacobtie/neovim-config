@@ -42,6 +42,10 @@ return {
     luasnip.config.setup {}
 
     cmp.setup {
+      formatting = {
+        format = require('nvim-highlight-colors').format,
+      },
+
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
