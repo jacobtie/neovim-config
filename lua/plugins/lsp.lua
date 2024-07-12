@@ -136,7 +136,19 @@ return {
             },
           },
         },
-        tsserver = {},
+        tsserver = {
+          handlers = {
+            ['textDocument/publishDiagnostics'] = function(err, result, ctx, config)
+              if not result then
+                return
+              end
+              result.diagnostics = vim.tbl_filter(function(d)
+                return d.code ~= 6133 -- Ignore "variable is declared but never used" error
+              end, result.diagnostics)
+              return vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+            end,
+          },
+        },
         eslint = {
           on_attach = function(_, bufnr)
             -- Automatically run eslint --fix on save
