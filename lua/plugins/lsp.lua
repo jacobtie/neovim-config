@@ -149,6 +149,13 @@ return {
             end,
           },
         },
+        volar = {
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
         eslint = {
           on_attach = function(_, bufnr)
             -- Automatically run eslint --fix on save
