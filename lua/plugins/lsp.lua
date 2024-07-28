@@ -137,6 +137,16 @@ return {
           },
         },
         tsserver = {
+          init_options = {
+            plugins = {
+              {
+                name = '@vue/typescript-plugin',
+                location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server',
+                languages = { 'vue' },
+              },
+            },
+          },
+          filetypes = { 'javascript', 'typescript', 'vue' },
           handlers = {
             ['textDocument/publishDiagnostics'] = function(err, result, ctx, config)
               if not result then
@@ -149,13 +159,7 @@ return {
             end,
           },
         },
-        volar = {
-          init_options = {
-            vue = {
-              hybridMode = false,
-            },
-          },
-        },
+        volar = {},
         eslint = {
           on_attach = function(_, bufnr)
             -- Automatically run eslint --fix on save
