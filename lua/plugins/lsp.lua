@@ -195,4 +195,15 @@ return {
       }
     end,
   },
+  {
+    'ray-x/lsp_signature.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('lsp_signature').setup {
+        hint_prefix = '',
+        hint_enable = false,
+        toggle_key = '<C-k>',
+      }
+    end,
+  },
 }
