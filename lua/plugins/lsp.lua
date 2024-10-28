@@ -160,17 +160,11 @@ return {
             })
           end,
         },
-        pylsp = {
-          settings = {
-            pylsp = {
-              plugins = {
-                pycodestyle = {
-                  maxLineLength = 150,
-                },
-                pylsp_mypy = {
-                  enabled = true,
-                },
-              },
+        basedpyright = {},
+        ruff = {
+          init_options = {
+            settings = {
+              configuration = '~/.config/ruff/pyproject.toml',
             },
           },
         },
