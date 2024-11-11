@@ -160,7 +160,7 @@ return {
             })
           end,
         },
-        basedpyright = {},
+        pyright = {},
         ruff = {
           init_options = {
             settings = {
