@@ -168,6 +168,16 @@ return {
             },
           },
         },
+        yamlls = {},
+        helm_ls = {
+          settings = {
+            ['helm-ls'] = {
+              yamlls = {
+                path = 'yaml-language-server',
+              },
+            },
+          },
+        },
       }
 
       require('mason').setup()
@@ -199,5 +209,9 @@ return {
         toggle_key = '<C-k>',
       }
     end,
+  },
+  {
+    'towolf/vim-helm',
+    ft = 'helm',
   },
 }
