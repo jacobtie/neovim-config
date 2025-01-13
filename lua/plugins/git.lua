@@ -6,6 +6,7 @@ return {
   -- Show and resolve config
   {
     'akinsho/git-conflict.nvim',
+    tag = 'v2.1.0',
     config = function()
       require('git-conflict').setup {
         default_mapping = false,

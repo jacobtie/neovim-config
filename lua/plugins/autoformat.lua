@@ -24,6 +24,7 @@ return {
         cpp = true,
         typescript = is_prettier_disabled(bufnr),
         javascript = is_prettier_disabled(bufnr),
+        vue = is_prettier_disabled(bufnr),
       }
       return {
         timeout_ms = 500,
