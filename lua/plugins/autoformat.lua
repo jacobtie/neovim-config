@@ -35,6 +35,7 @@ return {
       lua = { 'stylua' },
       typescript = { 'prettier' },
       javascript = { 'prettier' },
+      vue = { 'prettier' },
     },
     formatters = {
       prettier = {
