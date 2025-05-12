@@ -36,4 +36,4 @@ local lazyOpts = {
 require('lazy').setup('plugins', lazyOpts)
 
 -- Disable copilot by default
-vim.cmd ':Copilot disable'
+-- vim.cmd ':Copilot disable'
