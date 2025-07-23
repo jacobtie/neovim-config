@@ -127,13 +127,18 @@ return {
             },
           },
         },
-        ts_ls = {
-          init_options = {
-            plugins = {
-              {
-                name = '@vue/typescript-plugin',
-                location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
-                languages = { 'vue' },
+        vtsls = {
+          settings = {
+            vtsls = {
+              tsserver = {
+                globalPlugins = {
+                  {
+                    name = '@vue/typescript-plugin',
+                    location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+                    languages = { 'vue' },
+                    configNamespace = 'typescript',
+                  },
+                },
               },
             },
           },
@@ -150,7 +155,14 @@ return {
             end,
           },
         },
-        volar = {},
+        vue_ls = {
+          -- Workaround until this PR is merged https://github.com/mason-org/mason-lspconfig.nvim/issues/587
+          init_options = {
+            typescript = {
+              tsdk = '',
+            },
+          },
+        },
         eslint = {
           on_attach = function(client, bufnr)
             if base_on_attach then
@@ -184,6 +196,7 @@ return {
       }
 
       for server_name, opts in pairs(servers) do
+        vim.lsp.enable(server_name)
         vim.lsp.config(server_name, opts)
       end
 
