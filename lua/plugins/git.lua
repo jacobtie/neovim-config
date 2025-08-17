@@ -3,7 +3,6 @@ return {
   'tpope/vim-fugitive',
   -- :GBrowse to open in GH
   'tpope/vim-rhubarb',
-  -- Show and resolve config
   {
     'akinsho/git-conflict.nvim',
     tag = 'v2.1.0',
@@ -19,7 +18,6 @@ return {
       vim.keymap.set('n', '<leader>[x', ':GitConflictPrevConflict<CR>', { desc = 'Previous Conflict' })
     end,
   },
-  -- Show git status in the sign column
   {
     'lewis6991/gitsigns.nvim',
     config = function()

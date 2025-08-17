@@ -1,6 +1,3 @@
--- return {
---   'github/copilot.vim',
--- }
 return {
   'Exafunction/windsurf.nvim',
   dependencies = {

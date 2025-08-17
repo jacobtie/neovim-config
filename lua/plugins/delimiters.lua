@@ -9,7 +9,6 @@ local highlight = {
 }
 
 return {
-  -- Highlight matching delimiters
   {
     'HiPhish/rainbow-delimiters.nvim',
     config = function()
@@ -34,11 +33,9 @@ return {
       }
     end,
   },
-  -- Add indentation guides even on blank lines
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
-    opts = {},
     config = function()
       local hooks = require 'ibl.hooks'
       -- create the highlight groups in the highlight setup hook, so they are reset

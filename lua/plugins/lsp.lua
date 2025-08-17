@@ -1,4 +1,3 @@
--- LSP Configuration & Plugins
 return {
   {
     'folke/lazydev.nvim',
@@ -104,7 +103,6 @@ return {
       }
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-
       local base_on_attach = vim.lsp.config.eslint.on_attach
       local servers = {
         gopls = {},
@@ -123,6 +121,7 @@ return {
             vtsls = {
               tsserver = {
                 globalPlugins = {
+                  -- Vue setup
                   {
                     name = '@vue/typescript-plugin',
                     location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
@@ -134,27 +133,8 @@ return {
             },
           },
           filetypes = { 'javascript', 'typescript', 'vue' },
-          handlers = {
-            ['textDocument/publishDiagnostics'] = function(err, result, ctx)
-              if not result then
-                return
-              end
-              result.diagnostics = vim.tbl_filter(function(d)
-                return d.code ~= 6133 -- Ignore "variable is declared but never used" error
-              end, result.diagnostics)
-              require('ts-error-translator').translate_diagnostics(err, result, ctx)
-              return vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
-            end,
-          },
         },
-        vue_ls = {
-          -- Workaround until this PR is merged https://github.com/mason-org/mason-lspconfig.nvim/issues/587
-          init_options = {
-            typescript = {
-              tsdk = '',
-            },
-          },
-        },
+        vue_ls = {},
         eslint = {
           on_attach = function(client, bufnr)
             if base_on_attach then

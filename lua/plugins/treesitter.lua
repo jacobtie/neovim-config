@@ -1,4 +1,3 @@
--- Highlight, edit, and navigate code
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -22,7 +21,6 @@ return {
         'css',
         'scss',
       },
-      -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,
