@@ -4,6 +4,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    picker = { enabled = true },
     quickfile = { enabled = true },
   },
 }

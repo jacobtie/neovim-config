@@ -1,3 +1,4 @@
+-- TODO: Replace with blink
 -- Autocompletion - simplest to leave this as is
 return {
   'hrsh7th/nvim-cmp',
