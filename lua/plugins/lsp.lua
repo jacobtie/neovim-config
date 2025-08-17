@@ -144,14 +144,15 @@ return {
           },
           filetypes = { 'javascript', 'typescript', 'vue' },
           handlers = {
-            ['textDocument/publishDiagnostics'] = function(err, result, ctx, config)
+            ['textDocument/publishDiagnostics'] = function(err, result, ctx)
               if not result then
                 return
               end
               result.diagnostics = vim.tbl_filter(function(d)
                 return d.code ~= 6133 -- Ignore "variable is declared but never used" error
               end, result.diagnostics)
-              return vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+              require('ts-error-translator').translate_diagnostics(err, result, ctx)
+              return vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
             end,
           },
         },
@@ -220,5 +221,11 @@ return {
   {
     'towolf/vim-helm',
     ft = 'helm',
+  },
+  {
+    'dmmulroy/ts-error-translator.nvim',
+    config = function()
+      require('ts-error-translator').setup {}
+    end,
   },
 }
