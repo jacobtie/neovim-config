@@ -6,7 +6,12 @@ return {
     local Snacks = require 'snacks'
     Snacks.setup {
       bigfile = { enabled = true },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        matcher = {
+          frecency = true,
+        },
+      },
       quickfile = { enabled = true },
       rename = { enabled = true },
     }
