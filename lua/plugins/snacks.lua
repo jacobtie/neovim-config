@@ -8,6 +8,7 @@ return {
       bigfile = { enabled = true },
       picker = { enabled = true },
       quickfile = { enabled = true },
+      rename = { enabled = true },
     }
     vim.keymap.set('n', '<leader>sf', function()
       Snacks.picker.files { hidden = true }
