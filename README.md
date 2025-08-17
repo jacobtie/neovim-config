@@ -1,3 +1,3 @@
 # Neovim Config
 
-My personal neovim configuration. Always a work in progress. Forked off kickstart.
+My personal neovim configuration. Always a work in progress. Originally forked off kickstart.
