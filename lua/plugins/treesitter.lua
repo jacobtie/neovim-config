@@ -20,6 +20,8 @@ return {
         'toml',
         'css',
         'scss',
+        'go',
+        'sql',
       },
       auto_install = true,
       highlight = {
