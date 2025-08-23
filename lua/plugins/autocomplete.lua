@@ -42,9 +42,13 @@ return {
         nerd_font_variant = 'mono',
       },
       completion = {
-        documentation = { auto_show = true },
+        documentation = {
+          auto_show = true,
+          window = { border = 'rounded' },
+        },
         -- brenoprata10/nvim-highlight-colors integration
         menu = {
+          border = 'rounded',
           draw = {
             components = {
               -- customize the drawing of kind icons
@@ -86,7 +90,10 @@ return {
       },
       snippets = { preset = 'luasnip' },
       fuzzy = { implementation = 'lua' },
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        window = { border = 'rounded' },
+      },
     },
   },
   {
