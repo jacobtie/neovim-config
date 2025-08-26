@@ -35,6 +35,10 @@ return {
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
     opts = {
+      enabled = function()
+        local disabled_filetypes = { 'markdown' }
+        return not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
+      end,
       keymap = {
         preset = 'default',
       },
