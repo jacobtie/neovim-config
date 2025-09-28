@@ -16,7 +16,7 @@ return {
       rename = { enabled = true },
     }
     vim.keymap.set('n', '<leader>sf', function()
-      Snacks.picker.files { hidden = true }
+      Snacks.picker.files { hidden = true, exclude = { 'vendor' } }
     end, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sg', function()
       Snacks.picker.grep { hidden = true }
